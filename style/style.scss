@@ -16,6 +16,7 @@ nav{
     background-color: $space-cadet;
     display: flex;
     justify-content: space-between;
+    width: 100%;
     img{
         width: 250px;
         height: auto;
@@ -42,6 +43,20 @@ nav{
                 color: $imperial-red;
             }
         }
+    }
+    @media  (max-width:800px){
+        img{
+            width: 120px;
+            height: auto;
+        }
+        font-size: 11.5px;
+    }
+    @media  (max-width:500px){
+        img{
+            width: 100px;
+            height: auto;
+        }
+        font-size: 8px;
     }
 }
 
@@ -74,6 +89,15 @@ hr{
         width: 70%;
         margin: 0em auto;
         font-family: $text-font;
+    }
+    @media (max-width:800px){
+        h1{
+            font-size: 20px;
+        }
+        p{
+            font-size: 14px;
+            width: 90%;
+        }
     }
 }
 
@@ -130,50 +154,197 @@ hr{
             }
         }
     }
+    @media (max-width:800px) {
+        h2{
+            font-size: 20px;
+        }
+        .cards{
+            flex-wrap: wrap;
+            .card{
+                width: 22%;
+                margin: 1em 0;
+                h3{
+                    font-size: 20px;
+                    margin: auto 0;
+                    text-align: center;
+                }
+                img{
+                    width: 35px;
+                    height: auto;
+                }
+                span{
+                    font-size: 25px;
+                    margin: 0 0 0 1em;
+                }
+
+            }
+        }
+    }
+    @media (max-width:500px) {
+        h2{
+            font-size: 20px;
+        }
+        .cards{
+            flex-wrap: wrap;
+            .card{
+                width: 22%;
+                margin: 1em 1em;
+                h3{
+                    font-size: 20px;
+                    margin: auto 0;
+                    text-align: center;
+                }
+                img{
+                    width: 35px;
+                    height: auto;
+                }
+                span{
+                    font-size: 25px;
+                    margin: 0 0 0 .5em;
+                }
+
+            }
+        }
+    }
+}
+
+@mixin h4-styles {
+    font-size: $alice-blue;
+    font-size: 20px;
+    font-family: $title-font;
+    text-align: center;
+    margin: 1em 0 0 0;
+}
+
+@mixin h4-800px{
+    font-size: 18px;
+    width: 100px;
+}
+
+@mixin col-responsive {
+    display: flex;
+    h4{
+        @include h4-800px;
+    }
+    hr{
+        margin: .5em;
+    }
+    p{
+        font-size: 13px;
+    }
+    a{
+        font-size: 13px;
+    }
+    span{
+        font-size: 13px;
+    }
 }
 
 footer{
+    padding: 0 5%;
     background-color: $space-cadet;
-    .ins-footer{
-        width: 90%;
-        margin: 0 auto;
+    color: $alice-blue;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    .col1{
+        h4{
+            @include h4-styles;
+        }
+        p{
+            font-family: $text-font;
+            font-size: 15px;
+            text-align: center
+        }
+    }
+    .col2{
+        h4{
+            @include h4-styles;
+        }
+        a{
+            color: $alice-blue;
+            text-decoration: none;
+            display: flex;
+            font-size: 15px;
+            font-family: $text-font;
+            margin: 1em auto;
+            justify-content: center;
+            &:hover{
+                color: $manatee
+            }
+        }
+    }
+    .col3{
+        h4{
+            @include h4-styles;
+        }
+        span{
+            display: flex;
+            font-family: $text-font;
+            margin: 0.5em 0;
+            font-size: 15px;
+            &::before{
+                font-size: 2vw;
+                margin: 0em 1em 0 2em;
+            }
+        }
+    }
+    .col4{
+        a{
+            text-decoration: none;
+            color: $alice-blue;
+            display: flex;
+            font-family: $text-font;
+            font-size: 15px;
+            &:hover{
+                color: $manatee;
+                &::before{
+                    color: $alice-blue;
+                }
+            }
+            &::before{
+                font-size: 2vw;
+                margin: 0 1em 0 2em;
+            }
+        }
+        h4{
+            @include h4-styles;
+        }
+    }
+    @media (max-width:800px) {
         display: grid;
-        grid-template-columns: repeat(4, 25%);
-        div{
-            h4{
-                text-align: center;
-                color: $alice-blue;
-                font-size: 20px;
-                margin: 1em 0 .5em 0;
+        grid-template-columns: 100%;
+        .col1{
+            @include col-responsive;
+        }
+        .col2{
+            @include col-responsive;
+        }
+        .col3{
+            @include col-responsive;
+            span{
+                display: block;
+                margin: 0 1em;
+                text-align: center ;
+                &::before{
+                    font-size: 15px;
+                }
             }
-            hr{
-                margin: 0em 2em;
-                border: 1px solid $alice-blue;
-            }
-            p{
-                margin: 1em 1.5em;
-                color: $alice-blue;
-                text-justify: justify;
-                span{
-                    margin-left: 2em;
-                    a{
-                        text-decoration: none;
-                        color: $alice-blue;
-                        &:hover{
-                            color: $manatee;
-                        }
-                    }
+        }
+        .col4{
+            @include col-responsive;
+            a{
+                &:hover{
                     &::before{
-                        font-size: 25px;
-                        color: $alice-blue;
-                        position: relative;
-                        right: 32px;
-                    }
-                    &:hover{
                         color: $manatee;
                     }
                 }
+                &::before{
+                    font-size: 15px;
+                }
+                span{
+                    display: none;
+                }
             }
-        }      
+        }
     }
 }

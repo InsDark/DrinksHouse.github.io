@@ -1,0 +1,129 @@
+// All SASS variables
+$space-cadet: #2b2d42ff;
+$manatee: #8d99aeff;
+$alice-blue: #edf2f4ff;
+$imperial-red: #ef233cff;
+$amaranth-red: #d90429ff;
+$text-font:'Chango', cursive;
+$title-font:'Syne Mono', monospace; 
+$url-font:'Chango', cursive;
+
+// Document normalize
+body{
+    margin: 0%;
+    padding: 0%;
+}
+
+// All nav styles
+nav{
+    background-color: $space-cadet;
+    display: flex;
+    justify-content: space-between;
+    img{
+        width: 250px;
+        height: auto;
+        margin: 0em 0 0 3em;
+    }
+    .nav-options{
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0em 3em 0 0;
+        li{
+            align-self: center;
+            a{
+                text-decoration: none;
+                color: $alice-blue;
+                margin: 0em .5em;
+                font-family: $url-font;
+                font-size: 1.3em;
+                &:hover{
+                    color: $imperial-red;
+                }
+            }
+            .active{
+                color: $imperial-red;
+            }
+        }
+    }
+}
+
+// All slide styles
+.slide{
+    display: flex;
+    justify-content: center;
+    img{
+        width: 90%;
+        height: auto;
+        position: relative;
+    }
+}
+// Hr styles???
+hr{
+    margin: 1em 3em;
+    border-color: $manatee;
+}
+
+.products-detail{
+    margin:0 4em;
+    h1{
+        color: $imperial-red;
+        text-align: center;
+        font-family: $title-font;
+    }
+    p{
+        color: $space-cadet;
+        font-size: 20px;
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+        font-family: $text-font;
+    }
+}
+
+// All footer styles
+footer{
+    background-color: $space-cadet;
+    .ins-footer{
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+        div{
+            h4{
+                text-align: center;
+                color: $alice-blue;
+                font-size: 20px;
+                margin: 1em 0 .5em 0;
+            }
+            hr{
+                margin: 0em 2em;
+                border: 1px solid $alice-blue;
+            }
+            p{
+                margin: 1em 1.5em;
+                color: $alice-blue;
+                text-justify: justify;
+                span{
+                    margin-left: 2em;
+                    a{
+                        text-decoration: none;
+                        color: $alice-blue;
+                        &:hover{
+                            color: $manatee;
+                        }
+                    }
+                    &::before{
+                        font-size: 25px;
+                        color: $alice-blue;
+                        position: relative;
+                        right: 32px;
+                    }
+                    &:hover{
+                        color: $manatee;
+                    }
+                }
+            }
+        }      
+    }
+}
